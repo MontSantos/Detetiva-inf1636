@@ -17,11 +17,14 @@ import model.CtrlRegras;
 
 class PainelCards extends JPanel{
 	private Image[] carta = null;
+	private Image logo = null;
 	
 	public void paintComponent(Graphics g) {
 		Graphics2D G2D = (Graphics2D) g;
 		int x = getWidth();
 		int y = getHeight();
+
+		
 		
 		G2D.setColor(Color.decode("#2f1e16"));
 		G2D.fillRect(10, 10, x - 20, y - 20);
@@ -142,11 +145,27 @@ class PainelCards extends JPanel{
 			}
 		}
 		
-		for (int i = 0; i < 3; i++) {
-			// G2D.drawImage(carta[i], 150, 25 + (50*i*4), 100, 159, null);
-			G2D.drawImage(carta[i], 150, 25 + (184 * i), 100, 159, null);
-			
+		int cartaX = ((int) (((float)(x - 80)/2)));
+		int cartaY = ((int) (((float)(y - 80)/3)));
+		
+		System.out.println(x);
+		
+		for (int i = 0; i < control.getQtdCartasAtual(); i++) {
+			System.out.println(40 + (cartaY * i) - 3*(cartaY *(i/3)));
+			G2D.drawImage(carta[i], 40 + (i%2*(cartaX)), 40 + (cartaY * i) - 3*(cartaY *(i/3)) , cartaX, cartaY, null);
 		}
-	
+		
+		if (control.getQtdCartasAtual() != 6) {
+			if (logo == null)
+				try {
+					logo = ImageIO.read(new File("images/logoCLue.png"));
+				} catch (IOException e) {
+					System.err.println(e.getMessage());
+					System.exit(-1);
+				}
+			for (int i = control.getQtdCartasAtual(); i < 6; i++) {
+				G2D.drawImage(logo, 35 + (i%2*(cartaX)), cartaY/2 + 10 +(cartaY * i) - 3*(cartaY *(i/3)) , 445/3, 155/3, null);
+			}
+		}
 	}
 }

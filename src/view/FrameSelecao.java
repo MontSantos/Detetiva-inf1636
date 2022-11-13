@@ -1,4 +1,4 @@
-package view;
+	package view;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;

@@ -1,6 +1,6 @@
 package model;
 
-public class Pawn {
+class Pawn {
 	private int posX = 0;
 	private int posY = 0;
 	private int i;
@@ -31,12 +31,14 @@ public class Pawn {
 		return this.pawnNumber;
 	}
 	
+	// Posição no componente visual
 	public void setCoordinates(int x, int y) {
 		this.posX = x;
 		this.posY = y;
 		return;
 	}
 	
+	// Posicao na matriz do tabuleiro
 	public void setPosition(int i, int j) {
 		this.i = i;
 		this.j = j;

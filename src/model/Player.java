@@ -15,6 +15,7 @@ public class Player {
     private boolean saiuDoJogo = false;
     
     private ArrayList<Carta> cartas = new ArrayList<Carta>();
+    //private ArrayList<Notas> notas = new ArrayList<Notas>();
     
     // Constructor
     
@@ -43,10 +44,6 @@ public class Player {
         return this.cor;
     }
     
-//    public void movePawn(int dado) {
-//        pawn.move(dado);
-//    }
-    
     public void daCarta(Carta carta) {
     	this.cartas.add(carta);
     }
@@ -55,14 +52,30 @@ public class Player {
         return this.cartas;
     }
     
+    public int getQtdCartas() {
+    	return cartas.size();
+    }
+    
+//    public ArrayList<Notas> recuperaNotas(){
+//    	return this.notas;
+//    }
+    
+    // Posicao na matriz do tabuleiro
+    public int[] getPawnPosition() {
+    	return pawn.getPosition();
+    }
+    
+    // Posicao no componente visual
     public int[] getPawnCoordinates() {
         return pawn.getCoordinates();
     }
     
+ // Posicao no componente visual
     public void setCoordinates(int x, int y) {
         pawn.setCoordinates(x,y);
     }
     
+    // Posicao na matriz do tabuleiro
     public void setPosition(int x, int y) {
         pawn.setPosition(x,y);
     }

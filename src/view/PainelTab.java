@@ -38,15 +38,18 @@ class PainelTab extends JPanel{
 		CtrlRegras control = CtrlRegras.getInstance();
 		int w = getWidth();
 		int h = getHeight();
+		int tabX = (int) ((float) 600*(h/625));
+		int cartaX = (int)(((float) h / 671) * 66);
+		int cartaY = (int)(((float) h / 671) * 100);
 		
 		G2D.setColor(Color.decode("#2f1e16"));
-		G2D.fillRect(h + 10, 10, (w - 20) -h, h - 20);
+		G2D.fillRect(tabX + 10, 10, (w - 20) -tabX, h - 20);
 		G2D.setColor(Color.decode("#422900"));
-		G2D.fillRect(h + 20, 20, w - 40 - h, h - 40);
+		G2D.fillRect(tabX + 20, 20, w - 40 - tabX, h - 40);
 		G2D.setColor(Color.decode("#573b16"));
-		G2D.fillRect(h + 30, 30, w - 60 - h, h - 60);
+		G2D.fillRect(tabX + 30, 30, w - 60 - tabX, h - 60);
 		G2D.setColor(Color.decode("#e9c28b"));
-		G2D.fillRect(h + 40, 40, w - 80 - h, h - 80);
+		G2D.fillRect(tabX + 40, 40, w - 80 - tabX, h - 80);
 		//System.out.println(h);
 		
 		
@@ -61,7 +64,8 @@ class PainelTab extends JPanel{
 			}
 		}
 		
-		G2D.drawImage(tabClue, 0, 0, h, h, null);
+		
+		G2D.drawImage(tabClue, 0, 0, tabX, h, null);
 		
 		//dados
 		if (dados == null) {
@@ -77,12 +81,12 @@ class PainelTab extends JPanel{
 		
 		int dadoX = (int)(((float) h / 671) * 95);
 		int dadoY = (int)(((float) h / 671) * 106);
-		float biasX = h + ((w - h)/2);
+		float biasX = tabX + ((w - tabX)/2);
 		//float biasX = h + ((w - h)/2) - ((h / 672) * 95);
 		//System.out.println(h);
 		
-		G2D.drawImage(dados[control.getValorDados()[0] - 1], (int) (biasX - dadoX), 440, dadoX, dadoY, null);
-		G2D.drawImage(dados[control.getValorDados()[1] - 1], (int) (biasX), 440, dadoX, dadoY, null);
+		G2D.drawImage(dados[control.getValorDados()[0] - 1], (int) (biasX - dadoX), h/2 + cartaY +5, dadoX, dadoY, null);
+		G2D.drawImage(dados[control.getValorDados()[1] - 1], (int) (biasX), h/2 + cartaY +5, dadoX, dadoY, null);
 		
 		//jogador		
 		if (jog == null) {
@@ -90,7 +94,7 @@ class PainelTab extends JPanel{
 			try {
 				for (int i = 0; i < numPlayers; i++) {
 					switch (nomes[i]){
-						case "Sra. Scarlet":{
+						case "Srta. Scarlet":{
 							jog[i] = ImageIO.read(new File("images/Suspeitos/Scarlet.jpg"));
 							break;
 						}
@@ -122,7 +126,8 @@ class PainelTab extends JPanel{
 			}
 
 		}
-		G2D.drawImage(jog[control.getPLayerAtualId() - 1], 865, 330, 66, 100, null);
+
+		G2D.drawImage(jog[control.getPLayerAtualId() - 1], (int) (biasX + (dadoX - cartaX)) , h/2, cartaX, cartaY, null);
 
 		//peÃµes
 		
@@ -131,13 +136,13 @@ class PainelTab extends JPanel{
 			int y = coords[j][1];
 			if (control.getPlayerAtual() == control.getPlayer(j)) {
 				switch (nomes[j]){
-				case "Sra. Scarlet":{
+				case "Srta. Scarlet":{
 					G2D.setColor(Color.decode("#991017"));
 					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
 					break;
 				}
 				case "Coronel Mustard":{
-					G2D.setColor(Color.decode("#b7920e"));
+					G2D.setColor(Color.YELLOW);
 					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
 					break;
 				}

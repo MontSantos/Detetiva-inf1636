@@ -1,6 +1,6 @@
 package model;
 
-public class Carta {
+class Carta {
 	
 	// Variaveis
 	private int player; // Identificar o jogador que possui a carta;
@@ -8,10 +8,10 @@ public class Carta {
 	private int tipo; // 0 é Suspeito, 1 é Arma e 2 é Cômodo
 	
 	// Construtor
-	public Carta(String nome, int tipo){
+	public Carta(String nome, int tipo) {
 		this.nome = nome;
 		this.tipo = tipo;
-		}
+	}
 	
 	// Metodos
 	public String getNome() {
