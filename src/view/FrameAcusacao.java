@@ -9,6 +9,6 @@ import Controller.ObservadorIF;
 
 class FrameAcusacao extends FrameCheckList implements ObservadorIF{
 	public FrameAcusacao () {
-		super("Acusacao de X", 1);
+		super("Acusacao de X");
 	}
 }

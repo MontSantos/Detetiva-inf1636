@@ -7,7 +7,7 @@ import javax.swing.JButton;
 
 class FramePalpite extends FrameCheckList implements ObservadorIF{
 	public FramePalpite () {
-		super("Palpite de X", 1);
+		super("Palpite de X");
 		
 	}
 }
