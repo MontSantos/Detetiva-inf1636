@@ -1,6 +1,6 @@
 package model;
 
-public class Carta {
+class Carta {
 	
 	// Variaveis
 	private int player; // Identificar o jogador que possui a carta;

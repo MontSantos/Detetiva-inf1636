@@ -302,6 +302,10 @@ public class CtrlRegras implements ObservadoIF{
 		return playerAtual.getPlayerId();
 	}
 	
+	public int getQtdCartasAtual() {;
+		return playerAtual.getQtdCartas();
+	}
+	
 	public String[] getListaNomes() {
 		String[] nomes = new String[numPlayers];
 		for (int i = 0; i < numPlayers; i++) {

@@ -16,6 +16,8 @@ public class TesteBotao{
     	//FrameCards p = new FrameCards();
     	//FrameBloco b = new FrameBloco();
         //FramePalpite p = new FramePalpite();
+    	//FrameAcusacao a = new FrameAcusacao();
+    	//FrameCheckList l = new FrameCheckList();
 
         //botao1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //botao1.setSize(1200,700);

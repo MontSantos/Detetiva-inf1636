@@ -49,6 +49,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		int w = getWidth() - getInsets().right - getInsets().left;
 		int h = getHeight() - getInsets().top - getInsets().bottom;
 		int tamB = (int) (((float)h/671) * 40);
+		int tabX = (int) ((float) 600*(h/625));
 		//System.out.println(getInsets().bottom);
 		int i = 0;
         
@@ -57,7 +58,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
         //cria botões
         
         pass = new JButton("Passagem Secreta");
-        pass.setBounds((h)  + 40, 40, (w - h) - 80, tamB);
+        pass.setBounds((tabX)  + 40, 40, (w - tabX) - 80, tamB);
 		pass.setFont(new Font("Serif", Font.BOLD, 20));
 		pass.setForeground(Color.decode("#000000"));
 		pass.setBackground(Color.decode("#e9c28b"));
@@ -65,7 +66,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		i++;
         
 		cartas = new JButton("Mostrar Cartas");
-		cartas.setBounds(h + 40,(int) (40 + tamB*i), (w - h) - 80, tamB);
+		cartas.setBounds(tabX + 40,(int) (40 + tamB*i), (w - tabX) - 80, tamB);
 		cartas.setFont(new Font("Serif", Font.BOLD, 20));
 		cartas.setForeground(Color.decode("#000000"));
 		cartas.setBackground(Color.decode("#e9c28b"));
@@ -81,7 +82,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		
 		
 		bloco = new JButton("Bloco de Notas");
-		bloco.setBounds(h + 40, (int) (40 + tamB*i), (w - h) - 80, tamB);
+		bloco.setBounds(tabX + 40, (int) (40 + tamB*i), (w - tabX) - 80, tamB);
 		bloco.setFont(new Font("Serif", Font.BOLD, 20));
 		bloco.setForeground(Color.decode("#000000"));
 		bloco.setBackground(Color.decode("#e9c28b"));
@@ -89,7 +90,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		i++;
 		
 		palpite = new JButton("Palpite");
-		palpite.setBounds(h + 40, (int) (40 + tamB*i), (w - h) - 80, tamB);
+		palpite.setBounds(tabX + 40, (int) (40 + tamB*i), (w - tabX) - 80, tamB);
         palpite.setFont(new Font("Serif", Font.BOLD, 20));
         palpite.setForeground(Color.decode("#000000"));
 		palpite.setBackground(Color.decode("#e9c28b"));
@@ -97,7 +98,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
         i++;
         
         acusar = new JButton("Acusar");
-        acusar.setBounds(h + 40, (int) (40 + tamB*i), (w - h) - 80, tamB);
+        acusar.setBounds(tabX + 40, (int) (40 + tamB*i), (w - tabX) - 80, tamB);
 		acusar.setFont(new Font("Serif", Font.BOLD, 20));
 		acusar.setForeground(Color.decode("#000000"));
 		acusar.setBackground(Color.decode("#e9c28b"));
@@ -105,7 +106,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		i++;
 		
 		saveGame = new JButton("Salvar Jogo");
-		saveGame.setBounds(h + 40, (int) (40 + tamB*i), (w - h) - 80, tamB);
+		saveGame.setBounds(tabX + 40, (int) (40 + tamB*i), (w - tabX) - 80, tamB);
 		saveGame.setFont(new Font("Serif", Font.BOLD, 20));
 		saveGame.setForeground(Color.decode("#000000"));
 		saveGame.setBackground(Color.decode("#e9c28b"));
@@ -113,7 +114,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		i++;
 		
 		proximo = new JButton("Próximo");
-		proximo.setBounds(h + 40, (int) (40 + tamB*i), (w - h) - 80, tamB);
+		proximo.setBounds(tabX + 40, (int) (40 + tamB*i), (w - tabX) - 80, tamB);
 		proximo.setFont(new Font("Serif", Font.BOLD, 20));
 		proximo.setForeground(Color.decode("#000000"));
 		proximo.setBackground(Color.decode("#e9c28b"));
@@ -121,26 +122,26 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		i++;
 		
 		s1 = new JLabel("Jogador(a) da Vez:");
-		s1.setBounds(720, 350, 200, tamB/2);
+		s1.setBounds(tabX + 70, h/2, 200, tamB/2);
 		s1.setFont(new Font("Arial", Font.BOLD, 15));
 		panel.add(s1);
 		
 		s2 = new JLabel(control.getPlayerAtualNome());
-		s2.setBounds(720, 370, 200, tamB/2);
+		s2.setBounds(tabX + (70), h/2+tamB/2 , 200, tamB/2);
 		s2.setFont(new Font("Arial", Font.BOLD, 15));
 		panel.add(s2);
 		
 		String[] val = {"1", "2", "3", "4", "5", "6"};
 		
 		dado1 = new JComboBox<String>(val);
-		dado1.setBounds(h + 40, h - 120, 45, tamB/2);
+		dado1.setBounds(tabX + 40, h - 120, 45, tamB/2);
 		dado1.setFont(new Font("Arial", Font.PLAIN, 15));
 		dado1.setForeground(Color.decode("#000000"));
 		dado1.setBackground(Color.decode("#e9c28b"));
 		panel.add(dado1);
 		
 		dado2 = new JComboBox<String>(val);
-		dado2.setBounds(h + 40, h - 100, 45, tamB/2);
+		dado2.setBounds(tabX + 40, h - 100, 45, tamB/2);
 		dado2.setFont(new Font("Arial", Font.PLAIN, 15));
 		dado2.setForeground(Color.decode("#000000"));
 		dado2.setBackground(Color.decode("#e9c28b"));
@@ -148,7 +149,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		
 		escolher = new JButton("Escolher Dados");
 		panel.add(escolher);
-		escolher.setBounds(h + 85, h - 120, (w - h) - 125, tamB);
+		escolher.setBounds(tabX + 85, h - 120, (w - tabX) - 125, tamB);
 		escolher.setFont(new Font("Serif", Font.BOLD, 15));
 		escolher.setForeground(Color.decode("#000000"));
 		escolher.setBackground(Color.decode("#e9c28b"));
@@ -160,7 +161,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		
 		dados = new JButton("Rodar Dados");
 		panel.add(dados);
-		dados.setBounds(h + 40, h - 80, (w - h) - 80, tamB);
+		dados.setBounds(tabX + 40, h - 80, (w - tabX) - 80, tamB);
 		dados.setFont(new Font("Serif", Font.BOLD, 20));
 		dados.setForeground(Color.decode("#000000"));
 		dados.setBackground(Color.decode("#e9c28b"));

@@ -1,5 +1,5 @@
 package model;
 
-public enum Sala {
+enum Sala {
 	KITCHEN, BALLROOM, CONSERVATORY, DININGROOM, BILLIARDROOM, LIBRARY, LOUNGE, HALL, STUDY 
 }

@@ -1,6 +1,6 @@
 package model;
 
-public class Pawn {
+class Pawn {
 	private int posX = 0;
 	private int posY = 0;
 	private int i;

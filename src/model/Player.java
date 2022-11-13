@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class Player {
+class Player {
     
     // Variaveis
     
@@ -65,6 +65,10 @@ public class Player {
     
     public void setPosition(int x, int y) {
         pawn.setPosition(x,y);
+    }
+    
+    public int getQtdCartas() {
+    	return cartas.size();
     }
     
     public boolean getSaiuDoJogo() {
