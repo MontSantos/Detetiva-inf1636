@@ -94,7 +94,7 @@ class PainelTab extends JPanel{
 			try {
 				for (int i = 0; i < numPlayers; i++) {
 					switch (nomes[i]){
-						case "Sra. Scarlet":{
+						case "Srta. Scarlet":{
 							jog[i] = ImageIO.read(new File("images/Suspeitos/Scarlet.jpg"));
 							break;
 						}

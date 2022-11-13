@@ -51,7 +51,7 @@ public class CtrlRegras implements ObservadoIF{
 		
 		for (int i = 0; i<numPlayers; i++) {
 			switch(lstPlayer.get(i).getNome()) {
-			case "Sra. Scarlet":{
+			case "Srta. Scarlet":{
 				lstPlayer.get(i).setCoordinates(204, 630);
 				lstPlayer.get(i).setPosition(7, 24);
 				break;
@@ -192,14 +192,14 @@ public class CtrlRegras implements ObservadoIF{
 	public void initPlayers(ArrayList<String> personagens) {
 		String auxColor = "r";
 	    int pawnNumber = 0;
-	    String nome = "Sra. Scarlet"; 
+	    String nome = "Srta. Scarlet"; 
         for(int i = 0; i < numPlayers; i++) {
             
             switch(personagens.get(i)) {
                 case "Scarlet":{
                     auxColor = "r";
                     pawnNumber = 0;
-                    nome = "Sra. Scarlet";
+                    nome = "Srta. Scarlet";
                     break;
                 }
                 case "Mustard":{
