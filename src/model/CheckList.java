@@ -36,6 +36,32 @@ class CheckList {
 			}
 		} else if (tipo == 1) {
 			switch (S) {
+				case "castical": {
+					arma.add(Armas.CASTICAL);
+					break;
+				}
+				case "revolver": {
+					arma.add(Armas.REVOLVER);
+					break;
+				}
+				case "faca": {
+					arma.add(Armas.FACA);
+					break;
+				}
+				case "cano": {
+					arma.add(Armas.CANO);
+					break;
+				}
+				case "corda": {
+					arma.add(Armas.CORDA);
+					break;
+				}
+				case "plum":
+					arma.add(Armas.CHAVE);
+					break;
+			}
+		} else {
+			switch (S) {
 				case "jantar": {
 					sala.add(Sala.DININGROOM);
 					break;
@@ -73,32 +99,6 @@ class CheckList {
 					break;
 				}
 			}
-		} else {
-			switch (S) {
-				case "castical": {
-					arma.add(Armas.CASTICAL);
-					break;
-				}
-				case "revolver": {
-					arma.add(Armas.REVOLVER);
-					break;
-				}
-				case "faca": {
-					arma.add(Armas.FACA);
-					break;
-				}
-				case "cano": {
-					arma.add(Armas.CANO);
-					break;
-				}
-				case "corda": {
-					arma.add(Armas.CORDA);
-					break;
-				}
-				case "plum":
-					arma.add(Armas.CHAVE);
-					break;
-			}
 		}
-	} 
+	}
 }
