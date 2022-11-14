@@ -15,7 +15,8 @@ public class Player {
     private boolean saiuDoJogo = false;
     
     private ArrayList<Carta> cartas = new ArrayList<Carta>();
-    //private ArrayList<Notas> notas = new ArrayList<Notas>();
+    
+    private ArrayList<String> notas = new ArrayList<String>();
     
     // Constructor
     
@@ -56,9 +57,13 @@ public class Player {
     	return cartas.size();
     }
     
-//    public ArrayList<Notas> recuperaNotas(){
-//    	return this.notas;
-//    }
+    public ArrayList<String> getNotas(){
+    	return this.notas;
+    }
+    
+    public void setNotas(ArrayList<String> notas) {
+    	this.notas = notas;
+    }
     
     // Posicao na matriz do tabuleiro
     public int[] getPawnPosition() {

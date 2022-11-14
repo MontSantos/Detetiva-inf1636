@@ -144,15 +144,15 @@ public class CtrlRegras implements ObservadoIF{
 				//continue;
 		}
 		
-		if (estado == 3) {
-			//faz acusaÃ§ao
-			boolean acusacao = false;
-			if (acusacao) {
-				//player venceu;
-				//break;
-			}
-			lstPlayer.remove(playerAtual);
-		}
+//		if (estado == 3) {
+//			//faz acusaÃ§ao
+//			boolean acusacao = false;
+//			if (acusacao) {
+//				//player venceu;
+//				//break;
+//			}
+//			lstPlayer.remove(playerAtual);
+//		}
 		
 		this.notificaAll();
 		//vencedor pisca aqui	
@@ -161,7 +161,6 @@ public class CtrlRegras implements ObservadoIF{
 	public void turnoPlayer() {
 		playerAtual = lstPlayer.get(playerIndex);
 		int[] playerPosition = playerAtual.getPawnPosition();
-		jogouDados = true;
 //		if(estado == 1) {
 //			
 //		}
@@ -323,6 +322,14 @@ public class CtrlRegras implements ObservadoIF{
 		return playerAtual.getQtdCartas();
 	}
 	
+	public ArrayList<String> getNotasPlayerAtual(){
+		return playerAtual.getNotas();
+	}
+	
+	public void setNotasPlayerAtual(ArrayList<String> notas) {
+		playerAtual.setNotas(notas);
+	}
+	
 	public String[] getListaNomes() {
 		String[] nomes = new String[numPlayers];
 		for (int i = 0; i < numPlayers; i++) {
@@ -385,6 +392,7 @@ public class CtrlRegras implements ObservadoIF{
 		this.dadosV[0] = d1;
 		this.dadosV[1] = d2;
 		this.somaDados = dadosV[0] + dadosV[1];
+		jogouDados = true;
 		
 		notificaAll();
 	}
