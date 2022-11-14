@@ -170,13 +170,13 @@ class PainelTab extends JPanel{
 				
 			} else {
 				switch (nomes[j]){
-				case "Sra. Scarlet":{
+				case "Srta. Scarlet":{
 					G2D.setColor(Color.decode("#991017"));
 					G2D.fillOval(x,y,pinWidth,pinHeight);
 					break;
 				}
 				case "Coronel Mustard":{
-					G2D.setColor(Color.decode("#b7920e"));
+					G2D.setColor(Color.YELLOW);
 					G2D.fillOval(x,y,pinWidth,pinHeight);
 					break;
 				}

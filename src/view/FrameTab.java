@@ -142,7 +142,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		i++;
 		proximo.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				control.jogo();
+				control.jogo(); 
 			}
 		});
 		
@@ -202,6 +202,10 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		control.add(this);
 		
 	}
+	
+	public void mudaBotao(JButton Button) {
+        Button.setEnabled(!Button.isEnabled());
+    }
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
@@ -258,6 +262,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 
 	@Override
 	public void notify(ObservadoIF o) {
+		this.s2.setText(control.getPlayerAtualNome());
 		this.repaint();
 	}
 
