@@ -50,7 +50,7 @@ class PainelCards extends JPanel{
 							carta[i] = ImageIO.read(new File("images/Suspeitos/Scarlet.jpg"));
 							break;
 							
-						case "Coronel Mustard":
+						case "Col. Mustard":
 							carta[i] = ImageIO.read(new File("images/Suspeitos/Mustard.jpg"));
 							break;
 							
@@ -58,14 +58,14 @@ class PainelCards extends JPanel{
 							carta[i] = ImageIO.read(new File("images/Suspeitos/White.jpg"));
 							break;
 						
-						case  "Reverendo Green":
+						case "Rev. Green":
 							carta[i] = ImageIO.read(new File("images/Suspeitos/Green.jpg"));
 							break;
 							
-						case  "Sra. Peacock":
+						case "Sra. Peacock":
 							carta[i] = ImageIO.read(new File("images/Suspeitos/Peacock.jpg"));
 							break;
-						case "Professor Plum":
+						case "Prof. Plum":
 							carta[i] = ImageIO.read(new File("images/Suspeitos/Plum.jpg"));
 							break;
 							
@@ -86,11 +86,11 @@ class PainelCards extends JPanel{
 							carta[i] = ImageIO.read(new File("images/Armas/Faca.jpg"));
 							break;
 						
-						case  "Revolver":
+						case "Revólver":
 							carta[i] = ImageIO.read(new File("images/Armas/Revolver.jpg"));
 							break;
 							
-						case  "Chave Inglesa":
+						case "Chave Inglesa":
 							carta[i] = ImageIO.read(new File("images/Armas/ChaveInglesa.jpg"));
 							break;
 						case "Castical":
@@ -114,11 +114,11 @@ class PainelCards extends JPanel{
 							carta[i] = ImageIO.read(new File("images/Comodos/Entrada.jpg"));
 							break;
 						
-						case  "Escritorio":
+						case "Escritório":
 							carta[i] = ImageIO.read(new File("images/Comodos/Escritorio.jpg"));
 							break;
 							
-						case  "Jardim de Inverno":
+						case "Jardim de Inverno":
 							carta[i] = ImageIO.read(new File("images/Comodos/JardimInverno.jpg"));
 							break;
 						case "Sala de Estar":
@@ -127,10 +127,10 @@ class PainelCards extends JPanel{
 						case "Sala de Jantar":
 							carta[i] = ImageIO.read(new File("images/Comodos/SalaDeJantar.jpg"));
 							break;
-						case "Sala de Musica":
+						case "Sala de Música":
 							carta[i] = ImageIO.read(new File("images/Comodos/SalaDeMusica.jpg"));
 							break;
-						case "Salao de Jogos":
+						case "Salão de Jogos":
 							carta[i] = ImageIO.read(new File("images/Comodos/SalaoDeJogos.jpg"));
 							break;
 						

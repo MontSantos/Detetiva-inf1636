@@ -125,6 +125,13 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		panel.add(acusar);
 		i++;
 		
+		acusar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				FrameAcusacao fa = new FrameAcusacao();
+				fa.setVisible(true);
+			}
+		});
+		
 		saveGame = new JButton("Salvar Jogo");
 		saveGame.setBounds(tabX + 40, (int) (40 + tamB*i), (w - tabX) - 80, tamB);
 		saveGame.setFont(new Font("Serif", Font.BOLD, 20));
@@ -224,7 +231,7 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 	public void mouseClicked(MouseEvent e) {
 		this.x = e.getX() - getInsets().right - getInsets().left - 4;
 		this.y = e.getY() - getInsets().top - getInsets().bottom - 4 ;
-		this.xCasa = x/24;
+		this.xCasa = (int) (x/24);
 		this.yCasa = (int) (y/(25.5));
 		int[] pos = {xCasa, yCasa};
 		
@@ -236,9 +243,6 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 				control.movimenta(pos);
 			}
 		}
-		
-		System.out.printf("CordX: %d - CordY: %d - I: %d - J: %d\n", x, y, xCasa, yCasa);
-		
 
 	}
 

@@ -22,19 +22,19 @@ import Controller.ObservadorIF;
 import model.CtrlRegras;
 
 class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
-	protected PainelCheckList panel = new PainelCheckList();
+	protected PainelPalpite panel = new PainelPalpite();
 	//private Border a,b,c = null;
 	private JLabel sus, cmd, armas;
 	private JButton ok,cancelar;
 	private JCheckBox green, mustard, white, peacock, scarlet, plum, jantar, entrada, jogos,
 	cozinha, biblioteca, estar, musica, escritorio, jardim, castical, revolver, faca, cano, corda, chave;
 	
-	private ArrayList<String> anotacoes = new ArrayList<String>();
+	private boolean[] anotacoes = new boolean[21];
 	
-	private CtrlRegras control = CtrlRegras.getInstance();
+	private static CtrlRegras control = CtrlRegras.getInstance();
 	
 	public FrameBloco () {
-		super("Bloco de Notas de X");
+		super("Bloco de Notas de " + control.getPlayerAtualNome());
 		
 		/*JPanel armas = new JPanel();
 		JPanel sus = new JPanel();
@@ -79,9 +79,8 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		
 		//
 		//
-		if(control.getNotasPlayerAtual().size() > 0){
-			anotacoes = control.getPlayerAtual().getNotas();
-		}
+		
+		anotacoes = control.getPlayerAtual().getNotas();
 		
 		sus = new JLabel("Suspeito(s):");
 		sus.setBounds(52, 44, h/3, 20);
@@ -94,13 +93,14 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		scarlet.setFont(new Font("Serif", Font.BOLD, 15));
 		scarlet.setForeground(Color.BLACK);
 		scarlet.setBackground(Color.decode("#e9c28b"));
+		scarlet.setSelected(anotacoes[0]);
 		scarlet.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("scarlet");
+		        	anotacoes[0]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("scarlet");
+		        	anotacoes[0] = false;
 		        };
 		    }
 		});
@@ -111,13 +111,14 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		mustard.setFont(new Font("Serif", Font.BOLD, 15));
 		mustard.setForeground(Color.BLACK);
 		mustard.setBackground(Color.decode("#e9c28b"));
+		mustard.setSelected(anotacoes[1]);
 		mustard.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("mustard");
+		        	anotacoes[1]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("mustard");
+		        	anotacoes[1]= false;
 		        };
 		    }
 		});
@@ -128,14 +129,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		white.setFont(new Font("Serif", Font.BOLD, 15));
 		white.setForeground(Color.BLACK);
 		white.setBackground(Color.decode("#e9c28b"));
+		white.setSelected(anotacoes[2]);
 		white.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("white");
+		        	anotacoes[2]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("white");
-		        };
+		        	anotacoes[2]= false;		        
+		        	};
 		    }
 		});
 		
@@ -144,14 +146,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		green.setBounds(46, 65 + 3*botaoY, botaoX - 6, botaoY);               
 		green.setFont(new Font("Serif", Font.BOLD, 15));                                
 		green.setForeground(Color.BLACK);                                               
-		green.setBackground(Color.decode("#e9c28b"));  
+		green.setBackground(Color.decode("#e9c28b")); 
+		green.setSelected(anotacoes[3]);
 		green.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("green");
+		        	anotacoes[3]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("greenn");
+		        	anotacoes[3]= false;
 		        };
 		    }
 		});
@@ -161,14 +164,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		peacock.setBounds(46, 65 + 4*botaoY, botaoX - 6, botaoY);     
 		peacock.setFont(new Font("Serif", Font.BOLD, 15));                      
 		peacock.setForeground(Color.BLACK);                                     
-		peacock.setBackground(Color.decode("#e9c28b"));  
+		peacock.setBackground(Color.decode("#e9c28b"));
+		peacock.setSelected(anotacoes[4]);
 		peacock.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("peacockk");
+		        	anotacoes[4]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("peacock");
+		        	anotacoes[4]= false;
 		        };
 		    }
 		});
@@ -178,14 +182,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		plum.setBounds(46, 65 + 5*botaoY, botaoX - 6, botaoY);     
 		plum.setFont(new Font("Serif", Font.BOLD, 15));                      
 		plum.setForeground(Color.BLACK);                                     
-		plum.setBackground(Color.decode("#e9c28b"));    
+		plum.setBackground(Color.decode("#e9c28b"));   
+		plum.setSelected(anotacoes[5]);
 		plum.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("plumm");
+		        	anotacoes[5]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("plumm");
+		        	anotacoes[5]= false;
 		        };
 		    }
 		});
@@ -202,13 +207,14 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		jantar.setFont(new Font("Serif", Font.BOLD, 15));                
 		jantar.setForeground(Color.BLACK);                               
 		jantar.setBackground(Color.decode("#e9c28b"));
+		jantar.setSelected(anotacoes[6]);
 		jantar.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("jantar");
+		        	anotacoes[6]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("jantar");
+		        	anotacoes[6]= false;
 		        };
 		    }
 		});                  
@@ -218,14 +224,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		entrada.setBounds(46+ botaoX + 6, 65 + botaoY, botaoX - 12, botaoY); 
 		entrada.setFont(new Font("Serif", Font.BOLD, 15));                
 		entrada.setForeground(Color.BLACK);                               
-		entrada.setBackground(Color.decode("#e9c28b")); 
+		entrada.setBackground(Color.decode("#e9c28b"));
+		entrada.setSelected(anotacoes[7]);
 		entrada.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("entrada");
+		        	anotacoes[7]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("entrada");
+		        	anotacoes[7]= true;
 		        };
 		    }
 		});
@@ -235,14 +242,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		jogos.setBounds(46+ botaoX + 6, 65 + 2*botaoY, botaoX - 12, botaoY); 
 		jogos.setFont(new Font("Serif", Font.BOLD, 15));                
 		jogos.setForeground(Color.BLACK);                               
-		jogos.setBackground(Color.decode("#e9c28b"));   
+		jogos.setBackground(Color.decode("#e9c28b")); 
+		jogos.setSelected(anotacoes[8]);
 		jogos.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("jogos");
+		        	anotacoes[8]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("jogos");
+		        	anotacoes[8]= false;
 		        };
 		    }
 		});
@@ -253,13 +261,14 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		cozinha.setFont(new Font("Serif", Font.BOLD, 15));                
 		cozinha.setForeground(Color.BLACK);                               
 		cozinha.setBackground(Color.decode("#e9c28b")); 
+		cozinha.setSelected(anotacoes[9]);
 		cozinha.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("cozinha");
+		        	anotacoes[9]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("cozinha");
+		        	anotacoes[9]= false;
 		        };
 		    }
 		});
@@ -270,13 +279,14 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		biblioteca.setFont(new Font("Serif", Font.BOLD, 15));                
 		biblioteca.setForeground(Color.BLACK);                               
 		biblioteca.setBackground(Color.decode("#e9c28b"));
+		biblioteca.setSelected(anotacoes[10]);
 		biblioteca.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("biblioteca");
+		        	anotacoes[10]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("biblioteca");
+		        	anotacoes[10]= false;
 		        };
 		    }
 		});
@@ -286,14 +296,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		estar.setBounds(46+ botaoX + 6, 65 + 5*botaoY, botaoX - 12, botaoY); 
 		estar.setFont(new Font("Serif", Font.BOLD, 15));                
 		estar.setForeground(Color.BLACK);                               
-		estar.setBackground(Color.decode("#e9c28b"));      
+		estar.setBackground(Color.decode("#e9c28b")); 
+		estar.setSelected(anotacoes[11]);
 		estar.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("estar");
+		        	anotacoes[11]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("estar");
+		        	anotacoes[11]= false;
 		        };
 		    }
 		});
@@ -303,14 +314,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		musica.setBounds(46+ botaoX + 6, 65 + 6*botaoY, botaoX - 12, botaoY); 
 		musica.setFont(new Font("Serif", Font.BOLD, 15));                
 		musica.setForeground(Color.BLACK);                               
-		musica.setBackground(Color.decode("#e9c28b"));  
+		musica.setBackground(Color.decode("#e9c28b")); 
+		musica.setSelected(anotacoes[12]);
 		musica.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("musica");
+		        	anotacoes[12]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("musica");
+		        	anotacoes[12]= false;
 		        };
 		    }
 		});
@@ -320,14 +332,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		escritorio.setBounds(46+ botaoX + 6, 65 + 7*botaoY, botaoX - 12, botaoY); 
 		escritorio.setFont(new Font("Serif", Font.BOLD, 15));                
 		escritorio.setForeground(Color.BLACK);                               
-		escritorio.setBackground(Color.decode("#e9c28b"));  
+		escritorio.setBackground(Color.decode("#e9c28b")); 
+		escritorio.setSelected(anotacoes[13]);
 		escritorio.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("escritorio");
+		        	anotacoes[13]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("escritorio");
+		        	anotacoes[13]= false;
 		        };
 		    }
 		});
@@ -338,13 +351,14 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		jardim.setFont(new Font("Serif", Font.BOLD, 15));                
 		jardim.setForeground(Color.BLACK);                               
 		jardim.setBackground(Color.decode("#e9c28b"));
+		jardim.setSelected(anotacoes[14]);
 		jardim.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("jardim");
+		        	anotacoes[14]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("jardim");
+		        	anotacoes[14]= false;
 		        };
 		    }
 		});
@@ -361,14 +375,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		castical.setBounds(46 + 2*botaoX + 12, 65, botaoX - 18, botaoY);   
 		castical.setFont(new Font("Serif", Font.BOLD, 15));                        
 		castical.setForeground(Color.BLACK);                                       
-		castical.setBackground(Color.decode("#e9c28b"));  
+		castical.setBackground(Color.decode("#e9c28b")); 
+		castical.setSelected(anotacoes[15]);
 		castical.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("castical");
+		        	anotacoes[15]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("castical");
+		        	anotacoes[15]= false;
 		        };
 		    }
 		});
@@ -379,13 +394,14 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		revolver.setFont(new Font("Serif", Font.BOLD, 15));                        
 		revolver.setForeground(Color.BLACK);                                       
 		revolver.setBackground(Color.decode("#e9c28b")); 
+		revolver.setSelected(anotacoes[16]);
 		revolver.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("revolver");
+		        	anotacoes[16]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("revolver");
+		        	anotacoes[16]= false;
 		        };
 		    }
 		});
@@ -395,14 +411,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		faca.setBounds(46 + 2*botaoX + 12, 65 + 2*botaoY, botaoX - 18, botaoY);   
 		faca.setFont(new Font("Serif", Font.BOLD, 15));                        
 		faca.setForeground(Color.BLACK);                                       
-		faca.setBackground(Color.decode("#e9c28b"));   
+		faca.setBackground(Color.decode("#e9c28b")); 
+		faca.setSelected(anotacoes[17]);
 		faca.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("faca");
+		        	anotacoes[17]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("faca");
+		        	anotacoes[17]= false;
 		        };
 		    }
 		});
@@ -412,14 +429,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		cano.setBounds(46 + 2*botaoX + 12, 65 + 3*botaoY, botaoX - 18, botaoY);   
 		cano.setFont(new Font("Serif", Font.BOLD, 15));                        
 		cano.setForeground(Color.BLACK);                                       
-		cano.setBackground(Color.decode("#e9c28b"));    
+		cano.setBackground(Color.decode("#e9c28b"));  
+		cano.setSelected(anotacoes[18]);
 		cano.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("cano");
+		        	anotacoes[18]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("cano");
+		        	anotacoes[18]= false;
 		        };
 		    }
 		});
@@ -430,13 +448,14 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		corda.setFont(new Font("Serif", Font.BOLD, 15));                        
 		corda.setForeground(Color.BLACK);                                       
 		corda.setBackground(Color.decode("#e9c28b")); 
+		corda.setSelected(anotacoes[19]);
 		corda.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("corda");
+		        	anotacoes[19]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("corda");
+		        	anotacoes[19]= false;
 		        };
 		    }
 		});
@@ -446,14 +465,15 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		chave.setBounds(46 + 2*botaoX + 12, 65 + 5*botaoY, botaoX - 18, botaoY);   
 		chave.setFont(new Font("Serif", Font.BOLD, 15));                        
 		chave.setForeground(Color.BLACK);                                       
-		chave.setBackground(Color.decode("#e9c28b"));   
+		chave.setBackground(Color.decode("#e9c28b")); 
+		chave.setSelected(anotacoes[20]);
 		chave.addItemListener(new ItemListener() {
 		    @Override
 		    public void itemStateChanged(ItemEvent e) {
 		        if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
-		        	anotacoes.add("chave");
+		        	anotacoes[20]= true;
 		        } else {//checkbox has been deselected
-		        	anotacoes.remove("chave");
+		        	anotacoes[20]= false;
 		        };
 		    }
 		});

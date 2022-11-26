@@ -12,11 +12,10 @@ import model.CtrlRegras;
 
 class FrameCards extends JFrame implements ObservadorIF{
 	private PainelCards panel = new PainelCards();
+	private static CtrlRegras control = CtrlRegras.getInstance();
 	
 	public FrameCards() {
-		super("Cartas de X");
-		
-		CtrlRegras control = CtrlRegras.getInstance();
+		super("Cartas de " + control.getPlayerAtualNome());
 		
 		//cria janela
 		int tamTelaX = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
