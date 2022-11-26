@@ -4,7 +4,7 @@ class CasaComodo extends Casa{
     
     private boolean porta;
     private boolean passSct;
-    Sala nome;
+    private String nome;
     
     public CasaComodo() {
         porta = false;
@@ -16,7 +16,7 @@ class CasaComodo extends Casa{
     }
     
     public void setPass() {
-        if (this.nome == Sala.KITCHEN || this.nome == Sala.CONSERVATORY || this.nome == Sala.LOUNGE || this.nome == Sala.STUDY)
+        if (this.nome == "Cozinha" || this.nome == "Jardim de Inverno" || this.nome =="Sala de Estar" || this.nome == "Escritório")
             passSct = true;
     }
     
@@ -31,36 +31,36 @@ class CasaComodo extends Casa{
     public void setSala(char c) {
         switch(c) {
         case 'k':
-            nome = Sala.KITCHEN;
+            nome = "Cozinha";
             break;
         case 'b':
-            nome = Sala.BALLROOM;
+            nome = "Sala de Música";
             break;
         case 'c':
-            nome = Sala.CONSERVATORY;
+            nome = "Jardim de Inverno";
             break;
         case 'd':
-            nome = Sala.DININGROOM;
+            nome = "Sala de Jantar";
             break;
         case 'l':
-            nome = Sala.LOUNGE;
+            nome = "Sala de Estar";
             break;
         case 'i':
-            nome = Sala.BILLIARDROOM;
+            nome = "Salão de Jogos";
             break;
         case 'h':
-            nome = Sala.HALL;
+            nome =  "Entrada";
             break;
         case 's':
-            nome = Sala.STUDY;
+            nome = "Escritório";
             break;
         case 'o':
-            nome = Sala.LIBRARY;
+            nome = "Biblioteca";
             break;
         }
     }
     
-    public Sala getSala() {
+    public String getSala() {
         return nome;
     }
     

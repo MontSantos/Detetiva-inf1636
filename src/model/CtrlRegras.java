@@ -7,6 +7,7 @@ import java.util.*;
 import javax.imageio.ImageIO;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import java.lang.Math.*;
 
 import Controller.*;
 
@@ -309,6 +310,7 @@ public class CtrlRegras implements ObservadoIF{
 		return playerAtual;
 	}
 	
+	
 	public String getPlayerAtualNome() {
 		return playerAtual.getNome();
 	}
@@ -362,7 +364,7 @@ public class CtrlRegras implements ObservadoIF{
 		
 		int indexPlayerAtual = lstPlayer.indexOf(player);
 		
-		for(int i = indexPlayerAtual; i < lstPlayer.size(); i++) {
+		for(int i = indexPlayerAtual+1; i < lstPlayer.size(); i++) {
 			playerVerificado = lstPlayer.get(i);
 			resposta = verificaPalpite(playerVerificado, palpite);
 			
@@ -457,13 +459,42 @@ public class CtrlRegras implements ObservadoIF{
 		notificaAll();
 	}
 	
-	public void movimenta(int[] pos) {
-//		tab.movimenta(this.dadosV, playerAtual, tab.getCasa(pos));
-		this.estado = 1;
-		playerAtual.setPosition(pos[0], pos[1]);
-		playerAtual.setCoordinates((pos[0]+1)*24, (pos[1]+1)*24);
-		notificaAll();
-		turnoPlayer();
+	public void movimenta(int[] pos, int[] coord) {
+//		this.estado = 1;
+//		if(somaDados>0) {
+//			if(calculaDist(pos) == 1) {
+//				playerAtual.setPosition(pos[0], pos[1]);
+//				//playerAtual.setCoordinates(((pos[0]+1)*25)-7, ((pos[1]+1)*24)-7);
+//				playerAtual.setCoordinates(coord[0],coord[1]);
+//				notificaAll();
+//				turnoPlayer();
+//				somaDados-=1;
+//			}
+//		}
+		if(somaDados>0) {
+			if(calculaDist(pos) == 1) {
+				tab.movimenta(this.somaDados, playerAtual, tab.getCasa(pos), coord);
+				notificaAll();
+				turnoPlayer();
+				somaDados-=1;
+			}
+		}
+//		if (calculaDist(pos)== somaDados) {
+//			playerAtual.setPosition(pos[0], pos[1]);
+//			//playerAtual.setCoordinates(((pos[0]+1)*25)-7, ((pos[1]+1)*24)-7);
+//			playerAtual.setCoordinates(coord[0],coord[1]);
+//			notificaAll();
+//			turnoPlayer();
+//		}
+//		notificaAll();
+//		turnoPlayer();
+	}
+	
+	public int calculaDist(int[] fim) {
+		int [] casaPlayer = playerAtual.getPawnPosition();
+		int dist = Math.abs(casaPlayer[0] - fim[0]) + Math.abs(casaPlayer[1] - fim[1]);
+		
+		return dist;
 	}
 
 //

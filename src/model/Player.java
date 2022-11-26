@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class Player {
+class Player {
     
     // Variaveis
     
