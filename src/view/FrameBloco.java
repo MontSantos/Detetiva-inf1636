@@ -80,7 +80,7 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		//
 		//
 		
-		anotacoes = control.getPlayerAtual().getNotas();
+		anotacoes = control.getNotasPlayerAtual();
 		
 		sus = new JLabel("Suspeito(s):");
 		sus.setBounds(52, 44, h/3, 20);

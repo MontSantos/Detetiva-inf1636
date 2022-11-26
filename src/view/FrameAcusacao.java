@@ -310,7 +310,7 @@ class FrameAcusacao extends JFrame implements ObservadorIF,  ItemListener, Actio
 			        boolean acertou = control.acusa(control.getPlayerAtual(), acusacao);
 			        
 			        if(acertou) {
-			        	setVisible(false);
+			        	dispose();
 			        	FrameVitoria f = new FrameVitoria();
         				f.setVisible(true);
         				
@@ -318,6 +318,7 @@ class FrameAcusacao extends JFrame implements ObservadorIF,  ItemListener, Actio
 			        
 			        else {
 			        	JOptionPane.showMessageDialog(null, String.format("%s, você foi eliminado", control.getPlayerAtualNome()));
+			        	dispose();
 			        }				
 			}
 			

@@ -201,7 +201,7 @@ class FramePalpite extends JFrame implements ItemListener, ObservadorIF, ActionL
 		escritorio.setBackground(Color.decode("#e9c28b"));    
 		grupoC.add(escritorio);
 		
-		jardim = new JRadioButton("Jardim");
+		jardim = new JRadioButton("Jardim de Inverno");
 		panel.add(jardim);
 		jardim.setBounds(46+ botaoX + 6, 65 + 8*botaoY, botaoX - 12, (int)( botaoY - 6 -  (6*((float)h/600)))); 
 		jardim.setFont(new Font("Serif", Font.BOLD, 15));                
@@ -310,13 +310,14 @@ class FramePalpite extends JFrame implements ItemListener, ObservadorIF, ActionL
 			        
 			        String resPalpite = control.palpita(control.getPlayerAtual(), palpite);	
 			        
-			        if(resPalpite.equals(null)) {
+			        if(resPalpite == null) {
 			        	JOptionPane.showMessageDialog(null, "Ninguém possuia as cartas do seu palpite");
-			        	
+			        	dispose();
 			        }
 			        
 			        else {
 			        	JOptionPane.showMessageDialog(null, String.format("A carta %s foi encontrada", resPalpite));
+			        	dispose();
 			        }
 			}
 			

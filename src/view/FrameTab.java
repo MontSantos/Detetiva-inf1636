@@ -234,13 +234,14 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		this.xCasa = (int) (x/24);
 		this.yCasa = (int) (y/(25.5));
 		int[] pos = {xCasa, yCasa};
+		int[] coord = {x, y};
 		
 		if(x > 0 && x < 578 && y > 0 && y < 637 ) {
 			if (control.jogouDados() == false) {
 				JOptionPane.showMessageDialog(null, "É necessário jogar os dados");
 			}
 			else {
-				control.movimenta(pos);
+				control.movimenta(pos, coord);
 			}
 		}
 

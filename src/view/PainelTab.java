@@ -24,7 +24,6 @@ class PainelTab extends JPanel{
 	private int numPlayers = CtrlRegras.getInstance().getQntPlayers();
 	CtrlRegras control = CtrlRegras.getInstance();
 	
-	private int[][] coords = control.getListaCoord();
 	private String[] nomes = control.getListaNomes();
 	
 	private int pinHeight = 20;
@@ -41,6 +40,7 @@ class PainelTab extends JPanel{
 		int tabX = (int) ((float) 600*(h/625));
 		int cartaX = (int)(((float) h / 671) * 66);
 		int cartaY = (int)(((float) h / 671) * 100);
+		int[][] coords = control.getListaCoord();
 		
 		G2D.setColor(Color.decode("#2f1e16"));
 		G2D.fillRect(tabX + 10, 10, (w - 20) -tabX, h - 20);
