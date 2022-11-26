@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.lang.Math.*;
 
 class Tabuleiro {
     private final static int TAMANHOX = 24;
@@ -58,48 +59,67 @@ class Tabuleiro {
     
     	
     
-    void movimenta(int [] vDados, Player jogador, Casa fim ) {
-    	Casa casaAtual = getCasa(getPos(jogador.getPlayerId()));
-    	Queue<Casa> fila = new LinkedList<>();
-    	
-    	casaAtual.setDistance(0);
-    	fila.add(casaAtual);
-    	
-    	while(fila.size()>0) {
-    		Casa casa = fila.remove();
-    		if(casa == fim) {
-    			if(casa.getDistance() == vDados[0]+vDados[1])
-    				jogador.setCoordinates(casa.getX(), casa.getY());
-    		}
-    		for(Casa n : casa.getVizinhos()) {
-    			if(n.getJogador() != -5) {
-    				n.setDistance(casa.getDistance()+1);
-    				fila.add(n);
-    			}
-    		}
-    	}
-    }
+//    int movimenta(int[] vDados, Player jogador, Casa fim ) {
+//    	Casa casaAtual = getCasa(getPos(jogador.getPlayerId()));
+//    	
+//    	Queue<Casa> fila = new LinkedList<>();
+//    	
+//    	casaAtual.setDistance(0);
+//    	fila.add(casaAtual);
+//    	
+//    	while(fila.size()>0) {
+//    		Casa casa = fila.remove();
+//    		if(casa == fim) {
+//    			if(casa.getDistance() == vDados[0]+vDados[1])
+//    				jogador.setCoordinates(casa.getX(), casa.getY());
+//    		}
+//    		for(Casa n : casa.getVizinhos()) {
+//    			if(n.getJogador() != -5) {
+//    				n.setDistance(casa.getDistance()+1);
+//    				fila.add(n);
+//    			}
+//    		}
+//    	}
+//    	return -1;
+//    }
+//    
     
-    void validaMovimento(int xIni, int yIni, int xFim, int yFim, int [] vDados, Player jogador) {
-    	Casa dest = casas[xFim][yFim];
-    	
-    	if (xIni == xFim && yIni ==yFim) {
-    		return;
-    	}
-    	
-    	if(dest instanceof Casa) {
-    		movimenta(vDados, jogador, dest);
-    		return;
-    	}
-    	if(dest instanceof CasaComodo) {
-    		if (((CasaComodo) dest).getPorta()) {
-    			movimenta(vDados, jogador, dest);
-    			return;
-    		}
-    	}
-    }
+//    void validaMovimento(int xIni, int yIni, int xFim, int yFim, int [] vDados, Player jogador) {
+//    	Casa dest = casas[xFim][yFim];
+//    	
+//    	if (xIni == xFim && yIni ==yFim) {
+//    		return;
+//    	}
+//    	
+//    	// De uma casa para outra
+//    	if(casas[xIni][yIni] instanceof Casa && dest instanceof Casa) {
+//    		movimenta(vDados, jogador, dest);
+//    		return;
+//    	}
+//    	
+//    	if(dest instanceof CasaComodo) {
+//    		if (((CasaComodo) dest).getPorta()) {
+//    			movimenta(vDados, jogador, dest);
+//    			return;
+//    		}
+//    	}
+//    }
+//    
     
-    
+//    void movimenta(int[] vDados, Player jogador, Casa fim) {
+//    	Casa casaAtual = getCasa(getPos(jogador.getPlayerId()));
+//    	int dist;
+//    	
+//    	if(vDados[0]+vDados[1]>0) {
+//    		dist = Math.abs(casaAtual.getX() - fim.getX()) + Math.abs(casaAtual.getY() - fim.getY());
+//    		if(dist == 1) {
+//    			if(fim instanceof Casa) {
+//    				if(fim)
+//    			}
+//    		}
+//    	}
+//    	
+//    }
     
     // Para fazer a posi��o das casas no mapa
     public static void cria(){
@@ -203,11 +223,11 @@ class Tabuleiro {
     					casas[j][i].setJogador(5);
     					break;
     					}
-    			/*if (teste == 1)
-    				continue;
-    			System.out.printf("%d", casas[j][i].getJogador());*/
+//    			if (teste == 1)
+//    				continue;
+    			System.out.printf("%d", casas[j][i].getJogador());
     			}
-    		//System.out.println();
+    		;;System.out.println();
     		}
     	}
     }

@@ -16,7 +16,7 @@ public class Player {
     
     private ArrayList<Carta> cartas = new ArrayList<Carta>();
     
-    private ArrayList<String> notas = new ArrayList<String>();
+    boolean[] notas = new boolean [21];
     
     // Constructor
     
@@ -25,6 +25,9 @@ public class Player {
         this.nome = nome;
         this.cor = cor;
         this.pawn = new Pawn(pin);
+        for(int i = 0; i<21; i++) {
+        	notas[i] = false;
+        }
     }
     
     // Metodos
@@ -57,11 +60,11 @@ public class Player {
     	return cartas.size();
     }
     
-    public ArrayList<String> getNotas(){
+    public boolean[] getNotas(){
     	return this.notas;
     }
     
-    public void setNotas(ArrayList<String> notas) {
+    public void setNotas(boolean[] notas) {
     	this.notas = notas;
     }
     

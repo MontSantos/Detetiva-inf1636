@@ -15,9 +15,9 @@ public class CtrlRegras implements ObservadoIF{
 	// Variaveis
 	private static CtrlRegras instance = null;
 	
-	private String sus[] = {"Srta. Scarlet", "Coronel Mustard", "Professor Plum", "Reverendo Green", "Sra. White", "Sra. Peacock"};
-	private String guns[] = {"Corda", "Cano", "Faca", "Chave Inglesa", "Castical", "Revolver"}; 
-	private String rooms[] = {"Biblioteca", "Cozinha", "Entrada", "Escritorio", "Jardim de Inverno", "Sala de Estar", "Sala de Jantar", "Sala de Musica", "Salao de Jogos"};
+	private String sus[] = {"Srta. Scarlet", "Col. Mustard", "Prof. Plum", "Rev. Green", "Sra. White", "Sra. Peacock"};
+	private String guns[] = {"Corda", "Cano", "Faca", "Chave Inglesa", "Castical", "Revólver"}; 
+	private String rooms[] = {"Biblioteca", "Cozinha", "Entrada", "Escritório", "Jardim de Inverno", "Sala de Estar", "Sala de Jantar", "Sala de Música", "Salão de Jogos"};
 	
 	private final static int MAXPLAYERS = 6;
 	private final static int  MINPLAYERS = 3;
@@ -165,7 +165,6 @@ public class CtrlRegras implements ObservadoIF{
 //			
 //		}
 		this.notificaAll();
-		return;
 	}
 	
 	// Instance
@@ -322,11 +321,11 @@ public class CtrlRegras implements ObservadoIF{
 		return playerAtual.getQtdCartas();
 	}
 	
-	public ArrayList<String> getNotasPlayerAtual(){
+	public boolean[] getNotasPlayerAtual(){
 		return playerAtual.getNotas();
 	}
 	
-	public void setNotasPlayerAtual(ArrayList<String> notas) {
+	public void setNotasPlayerAtual(boolean[] notas) {
 		playerAtual.setNotas(notas);
 	}
 	
@@ -347,6 +346,67 @@ public class CtrlRegras implements ObservadoIF{
 		
 		return coords;
 	}
+	
+	public boolean acusa(Player player, String[] acusacao) {
+		if(acusacao[0].equals(this.resposta[0]) && acusacao[1].equals(this.resposta[1]) && acusacao[2].equals(this.resposta[2])) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public String palpita(Player player, String[] palpite) {
+		String resposta = null;
+		Player playerVerificado;
+		
+		int indexPlayerAtual = lstPlayer.indexOf(player);
+		
+		for(int i = indexPlayerAtual; i < lstPlayer.size(); i++) {
+			playerVerificado = lstPlayer.get(i);
+			resposta = verificaPalpite(playerVerificado, palpite);
+			
+			if (resposta != null) {
+				return resposta;
+			}
+			
+		}
+		
+		for(int i = 0; i<indexPlayerAtual; i++){
+			playerVerificado = lstPlayer.get(i);
+			
+			resposta = verificaPalpite(playerVerificado, palpite);
+			
+			if (resposta != null) {
+				return resposta;
+			}
+			
+		}
+		
+		return null;
+	}
+	
+	public String verificaPalpite(Player playerVerificado, String[] palpite) {
+		
+		for(Carta carta: playerVerificado.getCartasPlayer()) {
+			String nomeCarta = carta.getNome();
+			
+			if(nomeCarta.equals(palpite[0])) {
+				return palpite[0];
+			}
+			
+			if(nomeCarta.equals(palpite[1])) {
+				return palpite[1];
+			}
+			
+			if(nomeCarta.equals(palpite[2])) {
+				return palpite[2];
+			}
+		}
+		
+		return null;
+	}
+	
 	
 // Lida com as Cartas
 	
@@ -398,9 +458,11 @@ public class CtrlRegras implements ObservadoIF{
 	}
 	
 	public void movimenta(int[] pos) {
-		tab.movimenta(this.dadosV, playerAtual, tab.getCasa(pos));
+//		tab.movimenta(this.dadosV, playerAtual, tab.getCasa(pos));
 		this.estado = 1;
-		playerAtual.setCoordinates((pos[0]+1)*12, (pos[1]+1)*12);
+		playerAtual.setPosition(pos[0], pos[1]);
+		playerAtual.setCoordinates((pos[0]+1)*24, (pos[1]+1)*24);
+		notificaAll();
 		turnoPlayer();
 	}
 
