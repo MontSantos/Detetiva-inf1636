@@ -318,6 +318,8 @@ class FrameAcusacao extends JFrame implements ObservadorIF,  ItemListener, Actio
 			        
 			        else {
 			        	JOptionPane.showMessageDialog(null, String.format("%s, você foi eliminado", control.getPlayerAtualNome()));
+			        	control.eliminaPlayer();
+			        	control.jogo();
 			        	dispose();
 			        }				
 			}

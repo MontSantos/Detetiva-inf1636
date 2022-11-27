@@ -33,13 +33,8 @@ class FramePalpite extends JFrame implements ItemListener, ObservadorIF, ActionL
 	public FramePalpite () {
 		super("Palpite de " + control.getPlayerAtualNome());
 		ButtonGroup grupoS = new ButtonGroup();
-		ButtonGroup grupoC = new ButtonGroup();
 		ButtonGroup grupoA = new ButtonGroup();
 		
-		
-		/*JPanel armas = new JPanel();
-		JPanel sus = new JPanel();
-		JPanel cmd  = new JPanel();*/
 		
 		//cria janela
 		int tamTelaX = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
@@ -58,24 +53,6 @@ class FramePalpite extends JFrame implements ItemListener, ObservadorIF, ActionL
 		int botaoX = (w - 104)/3;
 		int botaoY = (h - 130)/9;
 		
-		//
-		//panel.setBackground(Color.decode("#f3cc95"));
-		/*sus.setBounds(50, 50, 143, 500);
-		a = BorderFactory.createMatteBorder(0, 0, 0 ,0, Color.BLACK);
-		sus.setBorder(BorderFactory.createTitledBorder(a,"Suspeitos"));
-		panel.add(sus);
-		
-		cmd.setBounds(243, 50, 143, 500);
-		b = BorderFactory.createMatteBorder(0, 0, 0 ,0, Color.decode("#e9c28b"));
-		cmd.setBorder(BorderFactory.createTitledBorder(b,"Comodos"));
-		panel.add(cmd);
-		
-		armas.setBounds(436, 50, 143, 500);
-		c = BorderFactory.createMatteBorder(0, 0, 0 ,0, Color.decode("#e9c28b"));
-		armas.setBorder(BorderFactory.createTitledBorder(c,"Armas"));
-		panel.add(armas); */
-		
-		//
 		
 		sus = new JLabel("Suspeito(s):");
 		sus.setBounds(52, 44, h/3, 20);
@@ -129,85 +106,6 @@ class FramePalpite extends JFrame implements ItemListener, ObservadorIF, ActionL
 		plum.setForeground(Color.BLACK);                                     
 		plum.setBackground(Color.decode("#e9c28b"));     
 		grupoS.add(plum);
-		
-		//
-		
-		cmd = new JLabel("Comodo(s):");
-		cmd.setBounds(58 + botaoX, 44, h/3, 20);
-		cmd.setFont(new Font("Arial", Font.BOLD, 15));
-		panel.add(cmd);
-		
-		jantar = new JRadioButton("Sala de Jantar");
-		panel.add(jantar);
-		jantar.setBounds(46+ botaoX + 6, 65, botaoX - 12, botaoY); 
-		jantar.setFont(new Font("Serif", Font.BOLD, 15));                
-		jantar.setForeground(Color.BLACK);                               
-		jantar.setBackground(Color.decode("#e9c28b"));  
-		grupoC.add(jantar);
-
-		entrada = new JRadioButton("Entrada");
-		panel.add(entrada);
-		entrada.setBounds(46+ botaoX + 6, 65 + botaoY, botaoX - 12, botaoY); 
-		entrada.setFont(new Font("Serif", Font.BOLD, 15));                
-		entrada.setForeground(Color.BLACK);                               
-		entrada.setBackground(Color.decode("#e9c28b"));  
-		grupoC.add(entrada);
-
-		jogos = new JRadioButton("Salão de Jogos");
-		panel.add(jogos);
-		jogos.setBounds(46+ botaoX + 6, 65 + 2*botaoY, botaoX - 12, botaoY); 
-		jogos.setFont(new Font("Serif", Font.BOLD, 15));                
-		jogos.setForeground(Color.BLACK);                               
-		jogos.setBackground(Color.decode("#e9c28b"));
-		grupoC.add(jogos);
-		
-		cozinha = new JRadioButton("Cozinha");
-		panel.add(cozinha);
-		cozinha.setBounds(46+ botaoX + 6, 65 + 3*botaoY, botaoX - 12, botaoY); 
-		cozinha.setFont(new Font("Serif", Font.BOLD, 15));                
-		cozinha.setForeground(Color.BLACK);                               
-		cozinha.setBackground(Color.decode("#e9c28b"));      
-		grupoC.add(cozinha);
-		
-		biblioteca = new JRadioButton("Biblioteca");
-		panel.add(biblioteca);
-		biblioteca.setBounds(46+ botaoX + 6, 65 + 4*botaoY, botaoX - 12, botaoY); 
-		biblioteca.setFont(new Font("Serif", Font.BOLD, 15));                
-		biblioteca.setForeground(Color.BLACK);                               
-		biblioteca.setBackground(Color.decode("#e9c28b"));     
-		grupoC.add(biblioteca);
-		
-		estar = new JRadioButton("Sala de Estar");
-		panel.add(estar);
-		estar.setBounds(46+ botaoX + 6, 65 + 5*botaoY, botaoX - 12, botaoY); 
-		estar.setFont(new Font("Serif", Font.BOLD, 15));                
-		estar.setForeground(Color.BLACK);                               
-		estar.setBackground(Color.decode("#e9c28b"));   
-		grupoC.add(estar);
-		
-		musica = new JRadioButton("Sala de Música");
-		panel.add(musica);
-		musica.setBounds(46+ botaoX + 6, 65 + 6*botaoY, botaoX - 12, botaoY); 
-		musica.setFont(new Font("Serif", Font.BOLD, 15));                
-		musica.setForeground(Color.BLACK);                               
-		musica.setBackground(Color.decode("#e9c28b")); 
-		grupoC.add(musica);
-		
-		escritorio = new JRadioButton("Escritório");
-		panel.add(escritorio);
-		escritorio.setBounds(46+ botaoX + 6, 65 + 7*botaoY, botaoX - 12, botaoY); 
-		escritorio.setFont(new Font("Serif", Font.BOLD, 15));                
-		escritorio.setForeground(Color.BLACK);                               
-		escritorio.setBackground(Color.decode("#e9c28b"));    
-		grupoC.add(escritorio);
-		
-		jardim = new JRadioButton("Jardim de Inverno");
-		panel.add(jardim);
-		jardim.setBounds(46+ botaoX + 6, 65 + 8*botaoY, botaoX - 12, (int)( botaoY - 6 -  (6*((float)h/600)))); 
-		jardim.setFont(new Font("Serif", Font.BOLD, 15));                
-		jardim.setForeground(Color.BLACK);                               
-		jardim.setBackground(Color.decode("#e9c28b"));         
-		grupoC.add(jardim);
 		
 		//
 
@@ -300,15 +198,10 @@ class FramePalpite extends JFrame implements ItemListener, ObservadorIF, ActionL
 			        	palpite[1] = tempA.getText(); 
 			           }
 			        }
-			      for(Enumeration<AbstractButton> AllgrupoC=grupoC.getElements(); AllgrupoC.hasMoreElements(); ){  
-			           JRadioButton tempC=(JRadioButton)AllgrupoC.nextElement();  
-			           if(tempC.isSelected())  
-			           {  
-			            palpite[2] = tempC.getText();  
-			           }  
-			        }
+				 
+				 palpite[2] = control.getComodo();
 			        
-			        String resPalpite = control.palpita(control.getPlayerAtual(), palpite);	
+			     String resPalpite = control.palpita(control.getPlayerAtual(), palpite);	
 			        
 			        if(resPalpite == null) {
 			        	JOptionPane.showMessageDialog(null, "Ninguém possuia as cartas do seu palpite");

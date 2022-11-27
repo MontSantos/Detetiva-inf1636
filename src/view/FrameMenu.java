@@ -3,6 +3,9 @@ package view;
 import javax.swing.JButton;
 
 import javax.swing.JFrame;
+
+import model.CtrlRegras;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -49,6 +52,16 @@ class FrameMenu extends JFrame implements ItemListener {
 		continuar.setFont(new Font("Serif", Font.BOLD, 12));
 		continuar.setForeground(Color.BLACK);
 		continuar.setBackground(Color.decode("#efe196"));
+		
+		continuar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CtrlRegras.getInstance().organizeLoadedGame();
+				
+				FrameTab f = new FrameTab();
+				f.setVisible(true);
+				setVisible(false);
+			}
+		});
 		
 		
         setVisible(true);

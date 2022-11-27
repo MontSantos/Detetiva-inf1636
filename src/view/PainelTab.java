@@ -25,6 +25,7 @@ class PainelTab extends JPanel{
 	CtrlRegras control = CtrlRegras.getInstance();
 	
 	private String[] nomes = control.getListaNomes();
+	private int[] numPeoes = control.getNumPeoes();
 	
 	private int pinHeight = 20;
 	private int pinWidth = 20;
@@ -41,6 +42,7 @@ class PainelTab extends JPanel{
 		int cartaX = (int)(((float) h / 671) * 66);
 		int cartaY = (int)(((float) h / 671) * 100);
 		int[][] coords = control.getListaCoord();
+		int[][] coordsPeao = control.getListaCoordPeao();
 		
 		G2D.setColor(Color.decode("#2f1e16"));
 		G2D.fillRect(tabX + 10, 10, (w - 20) -tabX, h - 20);
@@ -98,7 +100,7 @@ class PainelTab extends JPanel{
 							jog[i] = ImageIO.read(new File("images/Suspeitos/Scarlet.jpg"));
 							break;
 						}
-						case "Coronel Mustard":{
+						case "Col. Mustard":{
 							jog[i] = ImageIO.read(new File("images/Suspeitos/Mustard.jpg"));
 							break;
 						}
@@ -106,7 +108,7 @@ class PainelTab extends JPanel{
 							jog[i] = ImageIO.read(new File("images/Suspeitos/White.jpg"));
 							break;
 						}
-						case "Reverendo Green":{
+						case "Rev. Green":{
 							jog[i] = ImageIO.read(new File("images/Suspeitos/Green.jpg"));
 							break;
 						}
@@ -114,7 +116,7 @@ class PainelTab extends JPanel{
 							jog[i] = ImageIO.read(new File("images/Suspeitos/Peacock.jpg"));
 							break;
 						}
-						case "Professor Plum":{
+						case "Prof. Plum":{
 							jog[i] = ImageIO.read(new File("images/Suspeitos/Plum.jpg"));
 							break;
 						}
@@ -129,78 +131,116 @@ class PainelTab extends JPanel{
 
 		G2D.drawImage(jog[control.getPLayerAtualId() - 1], (int) (biasX + (dadoX - cartaX)) , h/2, cartaX, cartaY, null);
 
-		//peÃµes
+		//peÃµes jogadores
 		
 		for (int j = 0; j < numPlayers; j++) {
 			int x = coords[j][0];
 			int y = coords[j][1];
 			if (control.getPlayerAtual() == control.getPlayer(j)) {
 				switch (nomes[j]){
-				case "Srta. Scarlet":{
-					G2D.setColor(Color.decode("#991017"));
-					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
-					break;
-				}
-				case "Coronel Mustard":{
-					G2D.setColor(Color.YELLOW);
-					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
-					break;
-				}
-				case "Sra. White": {
-					G2D.setColor(Color.decode("#7780a1"));
-					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
-					break;
-				}
-				case "Reverendo Green":{
-					G2D.setColor(Color.decode("#045c4c"));
-					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
-					break;
-				}
-				case "Sra. Peacock":{
-					G2D.setColor(Color.decode("#183980"));
-					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
-					break;
-				}
-				case "Professor Plum":{
-					G2D.setColor(Color.decode("#4b293a"));
-					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
-					break;
-				}
+					case "Srta. Scarlet":{
+						G2D.setColor(Color.decode("#991017"));
+						G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+						break;
+					}
+					case "Col. Mustard":{
+						G2D.setColor(Color.YELLOW);
+						G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+						break;
+					}
+					case "Sra. White": {
+						G2D.setColor(Color.decode("#7780a1"));
+						G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+						break;
+					}
+					case "Rev. Green":{
+						G2D.setColor(Color.decode("#045c4c"));
+						G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+						break;
+					}
+					case "Sra. Peacock":{
+						G2D.setColor(Color.decode("#183980"));
+						G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+						break;
+					}
+					case "Prof. Plum":{
+						G2D.setColor(Color.decode("#4b293a"));
+						G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+						break;
+					}
 			}
 				
 			} else {
 				switch (nomes[j]){
-				case "Srta. Scarlet":{
-					G2D.setColor(Color.decode("#991017"));
-					G2D.fillOval(x,y,pinWidth,pinHeight);
-					break;
-				}
-				case "Coronel Mustard":{
-					G2D.setColor(Color.YELLOW);
-					G2D.fillOval(x,y,pinWidth,pinHeight);
-					break;
-				}
-				case "Sra. White": {
-					G2D.setColor(Color.decode("#7780a1"));
-					G2D.fillOval(x,y,pinWidth,pinHeight);
-					break;
-				}
-				case "Reverendo Green":{
-					G2D.setColor(Color.decode("#045c4c"));
-					G2D.fillOval(x,y,pinWidth,pinHeight);
-					break;
-				}
-				case "Sra. Peacock":{
-					G2D.setColor(Color.decode("#183980"));
-					G2D.fillOval(x,y,pinWidth,pinHeight);
-					break;
-				}
-				case "Professor Plum":{
-					G2D.setColor(Color.decode("#4b293a"));
-					G2D.fillOval(x,y,pinWidth,pinHeight);
-					break;
+					case "Srta. Scarlet":{
+						G2D.setColor(Color.decode("#991017"));
+						G2D.fillOval(x,y,pinWidth,pinHeight);
+						break;
+					}
+					case "Col. Mustard":{
+						G2D.setColor(Color.YELLOW);
+						G2D.fillOval(x,y,pinWidth,pinHeight);
+						break;
+					}
+					case "Sra. White": {
+						G2D.setColor(Color.decode("#7780a1"));
+						G2D.fillOval(x,y,pinWidth,pinHeight);
+						break;
+					}
+					case "Rev. Green":{
+						G2D.setColor(Color.decode("#045c4c"));
+						G2D.fillOval(x,y,pinWidth,pinHeight);
+						break;
+					}
+					case "Sra. Peacock":{
+						G2D.setColor(Color.decode("#183980"));
+						G2D.fillOval(x,y,pinWidth,pinHeight);
+						break;
+					}
+					case "Prof. Plum":{
+						G2D.setColor(Color.decode("#4b293a"));
+						G2D.fillOval(x,y,pinWidth,pinHeight);
+						break;
+					}
 				}
 			}
+		}
+		
+		// peões vazios
+		for (int j = 0; j < 6 - numPlayers; j++) {
+			int x = coordsPeao[j][0];
+			int y = coordsPeao[j][1];
+			switch (numPeoes[j]){
+				case 0:{
+					G2D.setColor(Color.decode("#991017"));
+					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+					break;
+				}
+				case 1:{
+					G2D.setColor(Color.YELLOW);
+					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+					break;
+				}
+				case 2: {
+					G2D.setColor(Color.decode("#7780a1"));
+					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+					break;
+				}
+				case 3:{
+					G2D.setColor(Color.decode("#045c4c"));
+					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+					break;
+				}
+				case 4:{
+					G2D.setColor(Color.decode("#183980"));
+					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+					break;
+				}
+				case 5:{
+					G2D.setColor(Color.decode("#4b293a"));
+					G2D.fillOval(x,y,pinWidthAtual,pinHeightAtual);
+					break;
+				}
 			}
 		}
 	}

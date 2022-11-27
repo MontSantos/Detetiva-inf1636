@@ -58,27 +58,6 @@ class FrameBloco extends JFrame implements ObservadorIF, WindowListener{
 		
 		int botaoX = (w - 104)/3;
 		int botaoY = (h - 130)/9;
-		System.out.println(h);
-		
-		//
-		//panel.setBackground(Color.decode("#f3cc95"));
-		/*sus.setBounds(50, 50, 143, 500);
-		a = BorderFactory.createMatteBorder(0, 0, 0 ,0, Color.BLACK);
-		sus.setBorder(BorderFactory.createTitledBorder(a,"Suspeitos"));
-		panel.add(sus);
-		
-		cmd.setBounds(243, 50, 143, 500);
-		b = BorderFactory.createMatteBorder(0, 0, 0 ,0, Color.decode("#e9c28b"));
-		cmd.setBorder(BorderFactory.createTitledBorder(b,"Comodos"));
-		panel.add(cmd);
-		
-		armas.setBounds(436, 50, 143, 500);
-		c = BorderFactory.createMatteBorder(0, 0, 0 ,0, Color.decode("#e9c28b"));
-		armas.setBorder(BorderFactory.createTitledBorder(c,"Armas"));
-		panel.add(armas); */
-		
-		//
-		//
 		
 		anotacoes = control.getNotasPlayerAtual();
 		

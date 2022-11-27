@@ -147,9 +147,7 @@ class PainelCards extends JPanel{
 		
 		int cartaX = ((int) (((float)(x - 80)/2)));
 		int cartaY = ((int) (((float)(y - 80)/3)));
-		
-		System.out.println(x);
-		
+				
 		for (int i = 0; i < control.getQtdCartasAtual(); i++) {
 			System.out.println(40 + (cartaY * i) - 3*(cartaY *(i/3)));
 			G2D.drawImage(carta[i], 40 + (i%2*(cartaX)), 40 + (cartaY * i) - 3*(cartaY *(i/3)) , cartaX, cartaY, null);

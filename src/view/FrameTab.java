@@ -70,6 +70,13 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		pass.setBackground(Color.decode("#e9c28b"));
 		panel.add(pass);
 		i++;
+		pass.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(control.getEstado()<2 && control.podePalpitar(control.getPlayerAtual())) {
+					control.movimentaSecreta();
+				}
+			}
+		});
         
 		cartas = new JButton("Mostrar Cartas");
 		cartas.setBounds(tabX + 40,(int) (40 + tamB*i), (w - tabX) - 80, tamB);
@@ -112,8 +119,10 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
         
         palpite.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				FramePalpite fp = new FramePalpite();
-				fp.setVisible(true);
+				if(control.podePalpitar(control.getPlayerAtual()) && control.getEstado()<3) {
+					FramePalpite fp = new FramePalpite();
+					fp.setVisible(true);
+				}
 			}
 		});
         
@@ -139,6 +148,14 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		saveGame.setBackground(Color.decode("#e9c28b"));
 		panel.add(saveGame);
 		i++;
+		saveGame.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(control.getEstado() == 0) {
+					control.saveGame();
+				}
+			}
+		});
+		
 		
 		proximo = new JButton("Próximo");
 		proximo.setBounds(tabX + 40, (int) (40 + tamB*i), (w - tabX) - 80, tamB);
@@ -199,7 +216,8 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		dados.setBackground(Color.decode("#e9c28b"));
 		dados.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				control.jogaDados();
+				if(control.getEstado() == 0)
+					control.jogaDados();
 			}
 		});
 		
@@ -236,12 +254,16 @@ class FrameTab extends JFrame implements ItemListener, MouseListener, Observador
 		int[] pos = {xCasa, yCasa};
 		int[] coord = {x, y};
 		
+
 		if(x > 0 && x < 578 && y > 0 && y < 637 ) {
 			if (control.jogouDados() == false) {
 				JOptionPane.showMessageDialog(null, "É necessário jogar os dados");
 			}
+			
 			else {
+				//System.out.printf("Coordenadas: %d - %d\nPosicao: %d - %d\n", x,y,xCasa,yCasa);
 				control.movimenta(pos, coord);
+				//control.imprimeTab();
 			}
 		}
 
