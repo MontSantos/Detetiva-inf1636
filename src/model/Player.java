@@ -92,9 +92,8 @@ class Player {
         return saiuDoJogo;
     }
     
-    public boolean setSaiuDoJogo() {
+    public void setSaiuDoJogo() {
         saiuDoJogo = !saiuDoJogo;
-        return saiuDoJogo;
     }
     
 }

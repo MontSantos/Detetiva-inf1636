@@ -3,7 +3,7 @@ package model;
 class Carta {
 	
 	// Variaveis
-	private int player; // Identificar o jogador que possui a carta;
+	//private int player; // Identificar o jogador que possui a carta;
 	private String nome;
 	private int tipo; // 0 é Suspeito, 1 é Arma e 2 é Cômodo
 	
@@ -22,13 +22,13 @@ class Carta {
 		return this.tipo;
 	}
 	
-	public void setJogador(int jogador) {
-		this.player = jogador;
-	}
+//	public void setJogador(int jogador) {
+//		this.player = jogador;
+//	}
 	
-	public int getJogador() {
-		return this.player;
-	}
+//	public int getJogador() {
+//		return this.player;
+//	}
 
 
 }

@@ -5,10 +5,14 @@ class CasaComodo extends Casa{
     private boolean porta;
     private boolean passSct;
     private String nome;
+    private int posX;
+    private int posY;
     
-    public CasaComodo() {
+    public CasaComodo(int x, int y) {
         porta = false;
         passSct = false;
+    	this.posX = x;
+    	this.posY = y;
     }
     
     public boolean getPass() {
@@ -27,6 +31,14 @@ class CasaComodo extends Casa{
     public void setPorta() {
         porta = true;
     }
+    
+    public int getX(){
+        return posX;
+      }
+      
+    public int getY(){
+        return posY;
+      }
     
     public void setSala(char c) {
         switch(c) {

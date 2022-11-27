@@ -8,7 +8,6 @@ class Casa{
     private int posX;
     private int posY;
     private ArrayList<Casa> vizinhos = new ArrayList<Casa>();
-    private int dist;
     
     protected boolean percorrida = false;
     
@@ -16,10 +15,9 @@ class Casa{
     	
     }
     
-    public Casa (int x, int y, int dist) {
+    public Casa (int x, int y) {
     	this.posX = x;
     	this.posY = y;
-    	this.dist = -1;
     }
     
     public void setPerc() {
@@ -54,15 +52,4 @@ class Casa{
 	   return vizinhos;
    }
    
-   public void setDistance(int d) {
-	   this.dist = d;
-   }
-   
-   public int getDistance() {
-	   return this.dist;
-   }
-   
-   public void resetDistance() {
-	   this.dist = -1;
-   }
 }
