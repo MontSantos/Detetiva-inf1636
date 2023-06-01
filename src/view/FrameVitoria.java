@@ -17,10 +17,10 @@ class FrameVitoria extends JFrame implements ItemListener {
 	private PainelVitoria panel = new PainelVitoria();
 	private JLabel s1;
 	private JButton fim, menu;
-	//private static CtrlRegras control = CtrlRegras.getInstance();
+	private static CtrlRegras control = CtrlRegras.getInstance();
 	
 	public FrameVitoria() {
-		super("Vitória de ");
+		super("Vitória de " + control.getPlayerAtualNome());
 		
 		int tamTelaX = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		int tamTelaY = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
@@ -64,7 +64,7 @@ class FrameVitoria extends JFrame implements ItemListener {
 			}
 		});
 		
-		s1 = new JLabel("Sra. Scarlet venceu o jogo");
+		s1 = new JLabel(control.getPlayerAtualNome() + " venceu o jogo");
 		s1.setBounds(80, h/2 - 150, 400, 50);
 		s1.setFont(new Font("Arial", Font.BOLD, 25));
 		panel.add(s1);

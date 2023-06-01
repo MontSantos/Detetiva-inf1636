@@ -2,6 +2,9 @@ package view;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+
+import model.CtrlRegras;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -15,6 +18,9 @@ class PainelVitoria extends JPanel {
 	
 	public void paintComponent(Graphics g) {
 		Graphics2D G2D = (Graphics2D) g;
+		
+		CtrlRegras control = CtrlRegras.getInstance();
+		String nome = control.getPlayerAtualNome();
 		
 		int x = getWidth() - getInsets().right - getInsets().left; ;
 		int y = (getHeight() - getInsets().top - getInsets().bottom);
@@ -30,11 +36,38 @@ class PainelVitoria extends JPanel {
 		
 		if (carta == null) {
 			try {
-				carta = ImageIO.read(new File("images/Suspeitos/Scarlet.jpg"));
+				
+				switch (nome){
+					case "Srta. Scarlet":{
+						carta = ImageIO.read(new File("images/Suspeitos/Scarlet.jpg"));
+						break;
+					}
+					case "Col. Mustard":{
+						carta = ImageIO.read(new File("images/Suspeitos/Mustard.jpg"));
+						break;
+					}
+					case "Sra. White": {
+						carta = ImageIO.read(new File("images/Suspeitos/White.jpg"));
+						break;
+					}
+					case "Rev. Green":{
+						carta = ImageIO.read(new File("images/Suspeitos/Green.jpg"));
+						break;
+					}
+					case "Sra. Peacock":{
+						carta = ImageIO.read(new File("images/Suspeitos/Peacock.jpg"));
+						break;
+					}
+					case "Prof. Plum":{
+						carta = ImageIO.read(new File("images/Suspeitos/Plum.jpg"));
+						break;
+					}
+				}
 			} catch (IOException e) {
-				System.err.println(e.getMessage());
-				System.exit(-1);
+				System.err.print(e.getMessage());
+				System.exit(1);
 			}
+
 		}
 		
 		G2D.drawImage(carta, x/2 - 33, y/2, 66, 100, null);
