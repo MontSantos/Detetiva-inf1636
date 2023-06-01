@@ -913,7 +913,7 @@ public class CtrlRegras implements ObservadoIF{
 
 		String cores[] = null;
 		String nomes[] = null;
-		String resposta[] = null;
+		String resp[] = null;
 		int qntCartas[] = null;
 		int idPeoes[] = null;
 		int posicoes[][] = null;
@@ -1026,9 +1026,9 @@ public class CtrlRegras implements ObservadoIF{
 					}
 					
 					if (line.compareTo("Resposta") == 0) {
-						resposta = new String[3];
+						resp = new String[3];
 						for (int k = 0; k < 3; k++) {
-							resposta[k] = s.nextLine();
+							resp[k] = s.nextLine();
 						}
 					}
 					
@@ -1045,6 +1045,9 @@ public class CtrlRegras implements ObservadoIF{
 		
 			carregaPlayers(numPlayers, cores, nomes, posicoes, saiuJogo);
 			carregaPeoes(numPeoes,idPeoes, posicoesPeoes);
+			this.resposta[0] = resp[0];
+			this.resposta[1] = resp[1];
+			this.resposta[2] = resp[2];
 
 			dadosV[0]=1;
 			dadosV[1]=1;

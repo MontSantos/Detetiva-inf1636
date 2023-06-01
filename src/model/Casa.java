@@ -7,7 +7,6 @@ class Casa{
     protected int jogador = -5;
     private int posX;
     private int posY;
-    private ArrayList<Casa> vizinhos = new ArrayList<Casa>();
     
     protected boolean percorrida = false;
     
@@ -43,13 +42,6 @@ class Casa{
     public int getJogador() {
         return jogador;
     }
-    
-   public void addVizinho(Casa vizinho) {
-	   vizinhos.add(vizinho);	   
-   }
-    
-   public ArrayList<Casa> getVizinhos(){
-	   return vizinhos;
-   }
+   
    
 }
