@@ -8,18 +8,18 @@ import org.junit.Test;
 
 public class CartaTeste {
 
-	@Test // Criaçao de cada tipo de carta
+	@Test // Criaï¿½ao de cada tipo de carta
 	public void testCarta() {
-		CartaArma teste1= new CartaArma("Faca",2 );
-		assertEquals("Erro ArmaId", 2, teste1.getCardId());
+		Carta teste1= new Carta("Faca",2 );
+		assertEquals("Erro ArmaId", 2, teste1.getTipo());
 		assertEquals("Erro ArmaNome", "Faca", teste1.getNome());
 		
-		CartaComodo teste2= new CartaComodo("HALL",1 );
-		assertEquals("Erro ComodoId", 1, teste2.getCardId());
+		Carta teste2= new Carta("HALL",1 );
+		assertEquals("Erro ComodoId", 1, teste2.getTipo());
 		assertEquals("Erro ComodoNome", "HALL", teste2.getNome());
 		
-		CartaSuspeito teste3= new CartaSuspeito("Scarlet",0 );
-		assertEquals("Erro SusId", 0, teste3.getCardId());
+		Carta teste3= new Carta("Scarlet",0 );
+		assertEquals("Erro SusId", 0, teste3.getTipo());
 		assertEquals("Erro SusNome", "Scarlet", teste3.getNome());
 		
 	}
